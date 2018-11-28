@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/jonathan-hinds/nodedemo/issues"
   },
-  "homepage": "https://github.com/jonathan-hinds/nodedemo#readme"
+  "homepage": "https://github.com/jonathan-hinds/nodedemo#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
