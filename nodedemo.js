@@ -1,7 +1,8 @@
-const readline = require('readline');
 const http = require('http');
 //enable the file system modile
 const fs = require('fs');
+
+var app = connect();
 //set the host ip
 const hostname = '/';
 //set the port to listen on
@@ -9,10 +10,6 @@ const port = process.env.PORT;
 //create a new server using the http module
 const server = http.createServer((req, res) => 
 { 
-    res.header("Access-Control-Allow-Origin", '*');
-    res.header("Access-Control-Allow-Credentials", true);
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
   //here are some changes
   var content;
   //set the body to be an array
