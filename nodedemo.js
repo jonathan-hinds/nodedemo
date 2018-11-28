@@ -1,8 +1,6 @@
 const http = require('http');
 //enable the file system modile
 const fs = require('fs');
-
-var app = connect();
 //set the host ip
 const hostname = '/';
 //set the port to listen on
