@@ -1,79 +1,46 @@
-const http = require('express');
-var app = express();
-
-
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+const http = require('http');
+//enable the file system modile
+const fs = require('fs');
+//set the host ip
+const hostname = '/';
+//set the port to listen on
+const port = process.env.PORT;
+//create a new server using the http module
+const server = http.createServer((req, res) => 
+{ 
+  res.setHeader('Access-Control-Allow-Headers', req.header.origin);
+  //here are some changes
+  var content;
+  //set the body to be an array
+  let body = [];
+  //when the request comes in
+  req.on('data', (chunk) =>
+  {
+    //push the chunk from the request into the body
+    body.push(chunk);
+  //when the request is done
+  }).on('end', () => 
+  {
+    //concatnate the body array into a string
+    body = Buffer.concat(body).toString();
+    //log that there has been a hit on the server
+    if(req.method === "GET")
+    {
+      var content = getInfo();
+      console.log(content); 
+    }   else if(req.method === 'POST') 
+    {
+      var message = JSON.parse(body);
+      //replace any quotation marks from the post data
+      message.data = message.data.replace("\"", "");
+      //write the new message to the chat document.
+      writeInfo(message.data);
+    }
+    //send the response back with the body.
+    res.setHeader('Content-Type', 'text/plain');
+    res.end(content);
+  })
 });
-
-
-
-app.get('/', function (req, res) {
-  var data = getInfo();
-  res.send("Hello World");
-});
-
-app.listen(process.env.PORT);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const http = require('http');
-// //enable the file system modile
-// const fs = require('fs');
-// //set the host ip
-// const hostname = '/';
-// //set the port to listen on
-// const port = process.env.PORT;
-// //create a new server using the http module
-// const server = http.createServer((req, res) => 
-// { 
-//   //here are some changes
-//   var content;
-//   //set the body to be an array
-//   let body = [];
-//   //when the request comes in
-//   req.on('data', (chunk) =>
-//   {
-//     //push the chunk from the request into the body
-//     body.push(chunk);
-//   //when the request is done
-//   }).on('end', () => 
-//   {
-//     //concatnate the body array into a string
-//     body = Buffer.concat(body).toString();
-//     //log that there has been a hit on the server
-//     if(req.method === "GET")
-//     {
-//       var content = getInfo();
-//       console.log(content); 
-//     }   else if(req.method === 'POST') 
-//     {
-//       var message = JSON.parse(body);
-//       //replace any quotation marks from the post data
-//       message.data = message.data.replace("\"", "");
-//       //write the new message to the chat document.
-//       writeInfo(message.data);
-//     }
-//     //send the response back with the body.
-//     res.setHeader('Content-Type', 'text/plain');
-//     res.end(content);
-//   })
-// });
 
 
 
