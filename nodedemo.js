@@ -3,7 +3,7 @@ const http = require('http');
 //enable the file system modile
 const fs = require('fs');
 //set the host ip
-const hostname = 'https://zcw4-2nodedemo.herokuapp.com/';
+const hostname = '/';
 //set the port to listen on
 const port = process.env.PORT || 3000;
 //create a new server using the http module
