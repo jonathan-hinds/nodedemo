@@ -1,0 +1,44 @@
+<html>
+<head></head>
+
+<body>
+	<div id = "body"></div>
+</body>
+<script type="text/javascript">
+	var get = function()
+	{       
+	    //create a new XML object to send the request.
+	    //mosSystem prrevents cross orgina requests error.
+	    var http = new XMLHttpRequest({mozSystem: true});
+		http.onreadystatechange = function() {
+	    	if(http.readyState === 4 && http.status === 200) {
+    			//console.log(http.responseText);
+    			document.getElementById("body").innerHTML = http.responseText;
+  			}
+		}
+	    //log the input so I can confirm this in the text file/
+	    //open a new post request to be sent to the host over port 3000
+	    http.open("GET", "http://127.0.0.1:3000", true);
+	    //send the request as an application.
+	    http.setRequestHeader("Content-Type", "text/plain");
+	    //send the request
+	    http.send();	
+	}
+
+	var post = function(data){
+	    //create a new XML object to send the request.
+	    //mosSystem prrevents cross orgina requests.
+	    var http = new XMLHttpRequest({mozSystem: true});
+	    //log the input so I can confirm this in the text file/
+	    //open a new post request to be sent to the host over port 3000
+	    http.open("POST", "http://127.0.0.1:3000", true);
+	    //send the request as an application.
+	    http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	    //the request will contain the input value in the body
+	    http.send('{ "data" : "' + data +'<br>", "file" : "logs.txt"}');
+	    get();
+	}
+
+	//post();
+</script>
+</html>
