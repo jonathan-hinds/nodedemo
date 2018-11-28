@@ -9,6 +9,7 @@ const port = process.env.PORT;
 //create a new server using the http module
 const server = http.createServer((req, res) => 
 { 
+  res.header('Access-Control-Allow-Origin', '*');
   //here are some changes
   var content;
   //set the body to be an array

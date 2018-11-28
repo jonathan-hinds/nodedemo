@@ -18,7 +18,7 @@
 		}
 	    //log the input so I can confirm this in the text file/
 	    //open a new post request to be sent to the host over port 3000
-	    http.open("GET", "http://127.0.0.1:3000", true);
+	    http.open("GET", "https://zcw4-2nodedemo.herokuapp.com", true);
 	    //send the request as an application.
 	    http.setRequestHeader("Content-Type", "text/plain");
 	    //send the request
@@ -31,11 +31,11 @@
 	    var http = new XMLHttpRequest({mozSystem: true});
 	    //log the input so I can confirm this in the text file/
 	    //open a new post request to be sent to the host over port 3000
-	    http.open("POST", "http://127.0.0.1:3000", true);
+	    http.open("POST", "https://zcw4-2nodedemo.herokuapp.com", true);
 	    //send the request as an application.
 	    http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	    //the request will contain the input value in the body
-	    http.send('{ "data" : "' + data +'<br>", "file" : "logs.txt"}');
+	    http.send('{ "data" : "' + data + '<br>", "file" : "logs.txt"}');
 	    get();
 	}
 
