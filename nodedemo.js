@@ -5,7 +5,7 @@ const fs = require('fs');
 //set the host ip
 const hostname = '/';
 //set the port to listen on
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 //create a new server using the http module
 const server = http.createServer((req, res) => 
 { 
