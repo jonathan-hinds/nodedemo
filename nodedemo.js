@@ -44,7 +44,7 @@ const server = http.createServer((req, res) =>
 
 
 //set the server to listen for the hostname being called over port 3000 by a request.
-server.listen(port, hostname, () => {
+server.listen(port, () => {
     //when the server sarts, log that the server is running.
   console.log(`Server running at http://${hostname}:${port}/`);
 });
