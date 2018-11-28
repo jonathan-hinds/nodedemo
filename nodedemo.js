@@ -41,24 +41,11 @@ const server = http.createServer((req, res) =>
     res.end(content);
   })
 });
-
-
 //set the server to listen for the hostname being called over port 3000 by a request.
 server.listen(port, () => {
     //when the server sarts, log that the server is running.
   console.log(`Server running at http://${hostname}:${port}/`);
 });
-
-
-
-
-
-
-
-
-
-
-
 var writeInfo = function(data)
 {
     fs.appendFile("logs.txt", data, function (err)
@@ -67,31 +54,7 @@ var writeInfo = function(data)
         console.log("File Saved!");
     });
 }
-
 var getInfo = function(){
-  // var cont;
-  // fs.readFile('logs.txt', 'utf8', function(err, contents) {
-  //     //console.log(contents);
-  //     cont = contents;
-      
-  // });
-  // console.log(cont);
-
   var contents = fs.readFileSync('logs.txt', 'utf8');
   return contents;
-
-  // var cont;
-
-  // const rl = readline.createInterface({
-  //   input: fs.createReadStream('logs.txt'),
-  //   crlfDelay: Infinity
-  // });
-
-  // rl.on('line', (line) => {
-  //   console.log(`${line}`);
-  //   cont += (`${line}`) + "\n";
-  // });
-
-  // return cont;
 }
-
