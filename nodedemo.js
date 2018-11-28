@@ -8,7 +8,7 @@ const port = process.env.PORT;
 //create a new server using the http module
 const server = http.createServer((req, res) => 
 { 
-  res.setHeader('Access-Control-Allow-Headers', req.header.origin);
+
   //here are some changes
   var content;
   //set the body to be an array
@@ -38,6 +38,7 @@ const server = http.createServer((req, res) =>
     }
     //send the response back with the body.
     res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Access-Control-Allow-Headers', "*");
     res.end(content);
   })
 });
