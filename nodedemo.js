@@ -3,12 +3,13 @@ const http = require('http');
 //enable the file system modile
 const fs = require('fs');
 //set the host ip
-const hostname = '127.0.0.1';
+const hostname = 'https://zcw4-2nodedemo.herokuapp.com/';
 //set the port to listen on
-const port = 3000;
+const port = process.env.PORT || 3000;
 //create a new server using the http module
 const server = http.createServer((req, res) => 
-{
+{ 
+  //here are some changes
   var content;
   //set the body to be an array
   let body = [];
