@@ -1,0 +1,22 @@
+{
+  "name": "nodedemo.js",
+  "version": "1.0.0",
+  "description": "node demo for ZCW",
+  "main": "nodedemo.js",
+  "scripts": {
+    "test": "exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathan-hinds/nodedemo.git"
+  },
+  "keywords": [
+    "demo"
+  ],
+  "author": "jonathan-hinds",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonathan-hinds/nodedemo/issues"
+  },
+  "homepage": "https://github.com/jonathan-hinds/nodedemo#readme"
+}
